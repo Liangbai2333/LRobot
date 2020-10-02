@@ -1,11 +1,11 @@
 # [LRobot][0]
 [0]:https://www.github.com/Liangbai2333/LRobot
-`LRobot`是运行在`Mirai`框架的`动态插件加载框架`，基于`ASM`+`URLClassLoader`与一套强大的注解系统(开发中)实现，现已支持Java, Kotlin语言，`LRobot-Native`初步支持原生语言(C++, C)及易语言。
+`LRobot`是运行在`Mirai`框架的`动态插件加载框架`，基于`ASM`+`URLClassLoader`与一套注解系统(开发中)实现，现已支持Java, Kotlin语言。
 ## 声明
-* 本项目仍在开发阶段，所有API都有可能在并不知情的情况下删除，所有插件都并不稳定。
-* 本项目暂未向外公布，预计更新到LRobot-2.0 Alpha时向外公布，同时也将稳定。
-* 现版本(1.8 Alpha)，仍是半成品阶段，现有代码即将重置。
+* 本项目仍在开发阶段，所有API都有可能在并不知情的情况下删除。
 * `LRobot` 采用 `AGPL 3.0` 协议开源。
+## 未来计划
+* 支持 C++、C、EPL等语言。
 ## 开源许可证
 ```
 Copyright (C) 2020 Liangbai Technologies and contributors.
@@ -49,21 +49,19 @@ public class Example extends JavaPlugin {
 Kotlin: 
 ```
 @Plugin(name = "Example", version = "1.0", author = "Liangbai")
-@SubscribeEvent
 class Example : JavaPlugin() {
   override fun onEnable() {
     Bot.getGroup(123456).sendMessage(
     "插件启动"
-    )
-  }
-
-  @JvmStatic
-  @EventHandler
-  fun onMsg(event: GroupMessageEvent)
-  {
-    event.group.sendMessage(
-      "${LR.at(event.sender)}
-      [复读] ${event.message}"
+    EventUtils.registerEvents(this, object : Listener {
+      @EventHandler
+      fun onMsg(event: GroupMessageEvent)
+      {
+        event.group.sendMessage(
+          "${LR.at(event.sender)}
+           [复读] ${event.message}"
+        )
+      }
     )
   }
 }
