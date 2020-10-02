@@ -6,23 +6,6 @@
 * `LRobot` 采用 `AGPL 3.0` 协议开源。
 ## 未来计划
 * 支持 C++、C、EPL等语言。
-## 开源许可证
-```
-Copyright (C) 2020 Liangbai Technologies and contributors.
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU Affero General Public License as
-published by the Free Software Foundation, either version 3 of the
-License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU Affero General Public License for more details.
-
-You should have received a copy of the GNU Affero General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-```
 ## 极简示例
 Java: 
 ``` 
@@ -70,7 +53,6 @@ class Example : JavaPlugin() {
 目前有两个指令注册方式:
 - 在实现CommandExecutor的public类上添加注解@CommandVisitor(commandName)，插件加载时会自动识别并加载它.
 - 使用LRobot#getCommandMap#register方法.
-
 ## 监听系统
 监听方法实例:
 @EventHandler
@@ -79,5 +61,21 @@ public (static) void onEvent(GroupMessageEvent event)
 目前有两个监听注册方式:
 - 在public类上添加注解@SubscribeEvent，并将所有监听方法标识为static，插件加载时会自动识别并加载它.
 - 使用EventUtils#registerEvents方法.
+## 开源许可证
+```
+Copyright (C) 2020 Liangbai Technologies and contributors.
 
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Affero General Public License as
+published by the Free Software Foundation, either version 3 of the
+License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Affero General Public License for more details.
+
+You should have received a copy of the GNU Affero General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+```
 ## 鸣谢: Bukkit, Intellij IDEA
