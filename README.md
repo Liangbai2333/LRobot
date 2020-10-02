@@ -66,5 +66,18 @@ class Example : JavaPlugin() {
   }
 }
 ```
+## 指令系统、监听系统
+###指令系统
+目前有两个指令注册方式:
+- 在实现CommandExecutor的public类上添加注解@CommandVisitor(commandName)，插件加载时会自动识别并加载它.
+- 使用LRobot#getCommandMap#register方法.
+###监听系统:
+监听方法实例:
+@EventHandler
+public (static) void onEvent(GroupMessageEvent event)
+其中EventHandler不可缺失.
+目前有两个监听注册方式:
+- 在public类上添加注解@SubscribeEvent，并将所有监听方法标识为static
+- 使用EventUtils#registerEvents方法.
 
 ## 鸣谢: Bukkit, Intellij IDEA
