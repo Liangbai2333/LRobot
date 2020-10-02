@@ -1,2 +1,4 @@
 ##ignore this file##
 /.gradle/
+target/
+build/
