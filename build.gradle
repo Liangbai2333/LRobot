@@ -1,0 +1,40 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+    id 'org.jetbrains.kotlin.jvm' version '1.4.10'
+}
+
+allprojects {
+    group 'site.liangbai'
+    version '2.0-Alpha'
+
+    repositories {
+        jcenter()
+    }
+}
+
+subprojects {
+    buildscript {
+        ext.kotlin_version = '1.3.72'
+
+        repositories {
+            jcenter()
+        }
+
+        dependencies {
+            classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+        }
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+
+    afterEvaluate {
+        tasks.withType(ShadowJar.class) {
+            group "LRobot"
+        }
+    }
+}
