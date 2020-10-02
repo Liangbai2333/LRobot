@@ -77,7 +77,7 @@ class Example : JavaPlugin() {
 public (static) void onEvent(GroupMessageEvent event)
 其中EventHandler不可缺失.
 目前有两个监听注册方式:
-- 在public类上添加注解@SubscribeEvent，并将所有监听方法标识为static
+- 在public类上添加注解@SubscribeEvent，并将所有监听方法标识为static，插件加载时会自动识别并加载它.
 - 使用EventUtils#registerEvents方法.
 
 ## 鸣谢: Bukkit, Intellij IDEA
